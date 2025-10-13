@@ -1,0 +1,63 @@
+@charset "Utf-8";
+@font-face {
+    font-family: 'calibri';
+    src: url(fontes/calibri-font-family/calibri-regular.ttf);
+}
+@font-face {
+    font-family: 'msghotic';
+    src: url(fontes/MS-Gothic/MSGOTHIC.TTF);
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+.nav{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0px 15px;
+}
+
+.nav img{
+    width: 4vw;
+    height: 4vh;
+    opacity: 0.5;
+}
+
+.separacao-icones{
+    background-color: white;
+    width: 3vw;
+    height: .5vh;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.nav li a{
+    text-decoration: none;
+}
+.page-section {
+    min-height: 100vw;
+    padding: 50px;
+}
+
+#section1{background-color: rgb(193, 241, 186);}
+#section2{background-color: rgb(28, 17, 37);}
+#section3{background-color: rgb(44, 37, 51);}
+#section4{background-color: blueviolet;}
