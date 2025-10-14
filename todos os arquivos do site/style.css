@@ -270,16 +270,26 @@ header{
     list-style: none;
 }
 
-#section2{
-    background-image: url(backgroundfigma/fundo2e4.jpg);
+#section2 {
+  background-image:
+    linear-gradient(
+        to bottom,
+      rgb(249, 206, 52, 0.52) 0%,   /* amarelo translúcido */
+      rgb(238, 42, 124, 0.40) 58%,  /* rosa translúcido */
+      rgba(98, 40, 215, 0.42) 100%   /* roxo translúcido */
+    ),
+    url("backgroundfigma/fundo2e4.jpg");
+
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
 }
+
 
 
 .conteiner-instagram{
