@@ -65,8 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
   // Função para trocar slides
   function goToSlide(index) {
     currentIndex = index;
-    slides.style.transform = `translateX(-${index * 100}%)`;
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
     updateDots();
+
   }
 
   function updateDots() {

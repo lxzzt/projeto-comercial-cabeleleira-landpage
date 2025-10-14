@@ -17,7 +17,7 @@ body{
 }
 
 .main-wrapper{width: 100%;
-max-width: 510px;
+max-width: 355px;
 max-height: 610px;
 margin: auto;}
 
@@ -39,11 +39,11 @@ margin: auto;}
 /* IDs para aplicar cores diferentes (Prioridade Alta) */
 /* ATENÇÃO: Verifique se o nome no seu CSS corresponde ao nome no seu HTML (#scroll-indicator-s1) */
 #scroll-indicator-s1 { 
-    background-color: #31557e; /* Usando a nova cor #4b89cf */
+    background-color: rgb(1, 26, 53,0.63); /* Usando a nova cor #4b89cf */
 }
 
 #scroll-indicator-s3 {
-    background-color: rgba(255, 255, 255, 0.3); /* Cor da Seção 3 */
+    background-color: #AC4423; /* Cor da Seção 3 */
 }
 
 /* ----------------------------------------------------------------- */
@@ -138,9 +138,9 @@ margin: auto;}
 header{
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 90%;
     margin-top: 30px;
-    max-width: 510px;
+    max-width: 300px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -271,7 +271,7 @@ header{
 }
 
 #section2 {
-  background-image:
+    background-image:
     linear-gradient(
         to bottom,
       rgb(249, 206, 52, 0.52) 0%,   /* amarelo translúcido */
@@ -288,16 +288,27 @@ header{
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
 }
 
 
 
 .conteiner-instagram{
-    margin-top: 10vh;
+    /* REMOVA: margin-top: 10vh; - JÁ ALINHADO PELO JUSTIFY-CONTENT */
     background-color: #E6E6E6;
     width: 80%;
-    height: 60%;
+    /* Altura definida por proporção (padding-bottom), para não depender do height fixo/relativo */
+    /* Se a imagem for quadrada, use 80%. Se for mais alta, use um valor maior (ex: 100%) */
+    padding-bottom: 80%; /* Altura é 80% da largura. Ajuste conforme a proporção das suas imagens */
+    position: relative; /* Essencial para o padding-bottom funcionar como altura */
     border-radius: 30px;
+    margin: 5vh 0; /* Margem vertical para centralizar melhor */
+    max-height: 450px; /* Define uma altura máxima se as imagens ficarem muito grandes em telas maiores */
+}
+
+#buttoninstagram {
+    margin-top: 5vh;
 }
 
 .faixa {
@@ -353,44 +364,46 @@ header{
 /* === SLIDER INSTAGRAM ==== */
 /* ========================== */
 .conteiner-insta {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: absolute; /* Ocupa todo o espaço do contêiner pai */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .slides {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  min-width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    min-width: 100%;
+    height: 100%; /* Garante que o slide ocupe a altura do slider */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém preenchendo, mas a proporção do contêiner está mais estável agora */
+    border-radius: 25px;
 }
 
 /* Bolinhas indicadoras */
