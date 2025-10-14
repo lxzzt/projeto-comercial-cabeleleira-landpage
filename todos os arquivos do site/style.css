@@ -21,102 +21,40 @@ max-width: 510px;
 max-height: 610px;
 margin: auto;}
 
-header{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    margin-top: 30px;
-    max-width: 510px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-
-
-.nav{
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.nav li {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 0px 15px;
-}
-
-.nav img{
-    width: 4vw;
-    height: 4vh;
-    opacity: 0.5;
-}
-
-.separacao-icones{
-    background-color: white;
-    width: 3vw;
-    height: .5vh;
-    min-width: 20px;
-    min-height: 2.5px;
-    border-radius: 5px;
-    opacity: 0.5;
-}
-
-.nav li a{
-    text-decoration: none;
-}
-.page-section {
-    min-height: 100%;
-    min-height: 100%;
-    padding: 1px;
-}
-
-#section1{
-    background-image: url(backgroundfigma/background\ s1.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding: 0; 
-}
-
-
-#textossection1 {
-    margin-top: 45vh;
-    text-align: center;
-}
-#textossection1 h1{color: #D1D1CD;}
-#textossection1 h2{color: #83858D;}
-
-/* tamanho dos textos seção1 */
-
-#titulo1s1{font-family: 'calibri';font-size: 2.2rem}
-#subtitulo1s1{font-family: msghotic;font-size: 1.1rem;margin: 5px 0px;}
-#subtitulo2s1{font-family: msghotic;font-size:1.2rem;margin: 5px 0px;}
-#subtitulo3s1{font-family: msghotic;font-size:1.3rem;margin: 5px 0px;}
-
-/* === TEXTO CURVO GIRANDO AO REDOR DO CÍRCULO === */
+/* ------------------------------------------------------------------ */
+/* === SCROLL INDICATOR - CLASSE (ESTRUTURA COMPARTILHADA) === */
+/* ------------------------------------------------------------------ */
 .scroll-indicator {
     position: relative;
     width: 160px;
     height: 160px;
     margin-top: auto;
     margin-bottom: 8vh;
-    background-color: rgba(1, 26, 53, 0.63);
     border-radius: 50%;
+    /* Cor de fundo removida daqui para ser controlada APENAS pelos IDs */
+}  
+
+/* IDs para aplicar cores diferentes (Prioridade Alta) */
+/* ATENÇÃO: Verifique se o nome no seu CSS corresponde ao nome no seu HTML (#scroll-indicator-s1) */
+#scroll-indicator-s1 { 
+    background-color: #31557e; /* Usando a nova cor #4b89cf */
 }
 
+#scroll-indicator-s3 {
+    background-color: rgba(255, 255, 255, 0.3); /* Cor da Seção 3 */
+}
+
+/* ----------------------------------------------------------------- */
+/* === TEXTO CURVO GIRANDO (NÃO REMOVA ESTES BLOCOS DE ANIMAÇÃO) === */
+/* ----------------------------------------------------------------- */
 .rotation-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 160px;
     height: 160px;
-    animation: rotateText 15s linear infinite;
+    /* ESTA LINHA CONTROLA A ROTAÇÃO. Não remova! */
+    animation: rotateText 15s linear infinite; 
     transform-origin: center;
 }
 
@@ -164,9 +102,13 @@ header{
     animation: arrowBounce 2s infinite;
 }
 
-/* Pulo da seta */
+/* ---------------------------------------------------------------- */
+/* === KEYFRAMES (O CORAÇÃO DAS ANIMAÇÕES) === */
+/* ---------------------------------------------------------------- */
+
+/* Pulo da seta - SINTAXE CORRIGIDA E LIMPA */
 @keyframes arrowBounce {
-        0%, 20%, 50%, 80%, 100% {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
     40% {
@@ -185,4 +127,212 @@ header{
     to {
         transform: rotate(360deg);
     }
+}
+
+/* ---------------------------------------------------------------- */
+/* === ESTILOS GERAIS DO LAYOUT === */
+/* ---------------------------------------------------------------- */
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-top: 30px;
+    max-width: 510px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+
+.nav{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0px 15px;
+}
+
+.nav img{
+    width: 4vw;
+    height: 4vh;
+    opacity: 0.5;
+}
+
+.separacao-icones{
+    background-color: white;
+    width: 3vw;
+    height: .5vh;
+    min-width: 20px;
+    min-height: 2.5px;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+.nav li a{
+    text-decoration: none;
+}
+.page-section {
+    min-height: 100vh;
+    padding: 1px;
+}
+
+#section1{
+    background-image: url(backgroundfigma/background\ s1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+}
+
+
+#textossection1 {
+    margin-top: 45vh;
+    text-align: center;
+}
+#textossection1 h1{color: #D1D1CD;}
+#textossection1 h2{color: #83858D;}
+
+/* tamanho dos textos seção1 */
+
+#titulo1s1{font-family: 'calibri';font-size: 2rem}
+#subtitulo1s1{font-family: msghotic;font-size: 1.1rem;margin: 5px 0px;}
+#subtitulo2s1{font-family: msghotic;font-size:1.2rem;margin: 5px 0px;}
+#subtitulo3s1{font-family: msghotic;font-size:1.3rem;margin: 5px 0px;}
+
+#section3{
+    height: 100vh;
+    background-image: url(backgroundfigma/backgrounds2.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#textossection3{
+    text-align: center;
+    margin-top: 25vh;
+}
+#titulo1s3{font-family: 'montserrat';font-size: 2rem;margin-top: 5px;margin-bottom: 10px;}
+#subtitulo1s3{font-family: 'montserrat';font-size: 1.3rem;margin-top: 5px;margin-bottom: 20px;}
+#localizacao1s3{width: 50px; height: 50px;}
+#subtitulo2s3{font-family: 'mooli';font-size: 1rem;margin-top: 15px;margin-bottom: 5px;text-shadow: rgba(0, 0, 0, 0.342) 1px 1px 5px;}
+
+/* Estilos do botão de localização (Mantidos e Centralizados) */
+#buttonlocalization{
+    background-color: #CDCDCD;
+    border-radius:60px;
+    padding: 0px 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* Garante alinhamento vertical */
+    text-decoration: none;
+}
+
+#buttonlocalization span{font-size: 30px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';}
+
+#buttonlocalization div{
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    align-items: center; /* Centraliza verticalmente a imagem */
+    justify-content: center; /* Centraliza horizontalmente a imagem */
+}
+#buttonlocalization div img{width: 20px;}
+
+#buttonlocalization:hover{
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.192) 0px 0px 20px;
+    transition: 0.5s;
+}
+#localizacao1s3:hover{
+    transform: translateY(-2px);
+    transition: 0.5s;
+}
+
+/* Fundo e Container Principal */
+.divfaixa {
+    background-color: #e5c3b9;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box; 
+    border-top: 1px solid #4a3e3c; 
+    border-bottom: 1px solid #4a3e3c;
+    /* Certifique-se de que o divfaixa não tenha largura excessiva. Se for 100%, deve caber. */
+}
+
+/* Lista principal - para alinhamento horizontal */
+.faixa {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centraliza os itens no centro */
+    align-items: center;
+    margin: 0;
+    padding: 0; /* Remove padding padrão */
+    font-family: sans-serif;
+    color: #4a3e3c; 
+    font-size: 1.2em; 
+    
+    /* CHAVE 1: Impedir que os itens quebrem a linha, o que faria o pai crescer verticalmente. */
+    flex-wrap: nowrap; 
+}
+
+/* Itens da lista - para alinhar ícone e texto e controlar o espaço */
+.faixa li {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    
+    /* ALTERAÇÃO IMPORTANTE: Use a propriedade padding horizontal para espaçar */
+    /* Removido o padding: 0 25px do CSS anterior */
+    padding-right: 25px; /* Espaço para o separador e próximo item */
+    padding-left: 25px; /* Espaço antes do conteúdo do item */
+    
+    position: relative;
+    /* CHAVE 2: Garante que os itens não tentem se expandir além da largura total. 
+       Isso não deve ser um problema com justify-content: center, mas é uma garantia. */
+    flex-shrink: 0;
+}
+
+/* ... (resto do CSS, como .faixa li img e ::after) */
+
+/* Criando o Separador Vertical com Pseudo-elemento ::after */
+.faixa li::after {
+    content: ''; 
+    position: absolute;
+    /* Ajuste de posição: o separador precisa ser inserido no padding direito do item li, 
+       mas para simular o design, vamos deixá-lo no limite do conteúdo + padding. */
+    right: 0; /* Posiciona no lado direito do <li>, que inclui o padding direito */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 1px;
+    background-color: #4a3e3c;
+}
+
+/* Removendo o Separador do Último Item */
+.faixa li:last-child::after {
+    content: none;
+}
+
+/* Ajuste de padding no último item (opcional, para equilibrar o espaçamento) */
+.faixa li:last-child {
+    padding-right: 0; /* Remove o padding direito no último item (ou ajuste para simetria visual) */
+}
+.faixa li:first-child {
+     padding-left: 0; /* Remove o padding esquerdo no primeiro item (ou ajuste para simetria visual) */
 }
