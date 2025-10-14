@@ -214,7 +214,7 @@ header{
 
 #section3{
     height: 100vh;
-    background-image: url(backgroundfigma/backgrounds3.jpg);
+    background-image: url(backgroundfigma/backgrounds3.webp);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -265,82 +265,13 @@ header{
     transform: translateY(-2px);
     transition: 0.5s;
 }
-
-/* Fundo e Container Principal */
-.divfaixa {
-    background-color: #e5c3b9;
-    width: 100%;
-    padding: 10px 0;
-    box-sizing: border-box; 
-    border-top: 1px solid #4a3e3c; 
-    border-bottom: 1px solid #4a3e3c;
-    /* Certifique-se de que o divfaixa não tenha largura excessiva. Se for 100%, deve caber. */
-}
-
-/* Lista principal - para alinhamento horizontal */
-.faixa {
+.faixa ul{
+    display: flex;
     list-style: none;
-    display: flex;
-    justify-content: center; /* Centraliza os itens no centro */
-    align-items: center;
-    margin: 0;
-    padding: 0; /* Remove padding padrão */
-    font-family: sans-serif;
-    color: #4a3e3c; 
-    font-size: 1.2em; 
-    
-    /* CHAVE 1: Impedir que os itens quebrem a linha, o que faria o pai crescer verticalmente. */
-    flex-wrap: nowrap; 
-}
-
-/* Itens da lista - para alinhar ícone e texto e controlar o espaço */
-.faixa li {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
-    
-    /* ALTERAÇÃO IMPORTANTE: Use a propriedade padding horizontal para espaçar */
-    /* Removido o padding: 0 25px do CSS anterior */
-    padding-right: 25px; /* Espaço para o separador e próximo item */
-    padding-left: 25px; /* Espaço antes do conteúdo do item */
-    
-    position: relative;
-    /* CHAVE 2: Garante que os itens não tentem se expandir além da largura total. 
-       Isso não deve ser um problema com justify-content: center, mas é uma garantia. */
-    flex-shrink: 0;
-}
-
-/* ... (resto do CSS, como .faixa li img e ::after) */
-
-/* Criando o Separador Vertical com Pseudo-elemento ::after */
-.faixa li::after {
-    content: ''; 
-    position: absolute;
-    /* Ajuste de posição: o separador precisa ser inserido no padding direito do item li, 
-       mas para simular o design, vamos deixá-lo no limite do conteúdo + padding. */
-    right: 0; /* Posiciona no lado direito do <li>, que inclui o padding direito */
-    top: 50%;
-    transform: translateY(-50%);
-    height: 80%;
-    width: 1px;
-    background-color: #4a3e3c;
-}
-
-/* Removendo o Separador do Último Item */
-.faixa li:last-child::after {
-    content: none;
-}
-
-/* Ajuste de padding no último item (opcional, para equilibrar o espaçamento) */
-.faixa li:last-child {
-    padding-right: 0; /* Remove o padding direito no último item (ou ajuste para simetria visual) */
-}
-.faixa li:first-child {
-     padding-left: 0; /* Remove o padding esquerdo no primeiro item (ou ajuste para simetria visual) */
 }
 
 #section2{
-    background-image: url(backgroundfigma/backgrounds2.jpg);
+    background-image: url();
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -348,4 +279,138 @@ header{
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
+}
+
+
+.conteiner-instagram{
+    margin-top: 10vh;
+    background-color: #E6E6E6;
+    width: 80%;
+    height: 60%;
+    border-radius: 30px;
+}
+
+.faixa {
+  width: 100%;
+  overflow: hidden;
+  background-color: #d9d9d99a; /* cor da faixa */
+  position: relative;
+}
+
+.faixa__conteudo {
+  display: flex;
+  width: max-content;
+  animation: moverFaixa 20s linear infinite;
+}
+
+.faixa ul {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  padding: 0.1rem;
+  margin: 0;
+  font-family: 'mukta malar', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.faixa li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.faixa img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* 🎞️ Animação contínua */
+@keyframes moverFaixa {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ========================== */
+/* === SLIDER INSTAGRAM ==== */
+/* ========================== */
+.conteiner-insta {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* Bolinhas indicadoras */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dots button.active {
+  background-color: white;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .dots button {
+    width: 8px;
+    height: 8px;
+  }
 }
