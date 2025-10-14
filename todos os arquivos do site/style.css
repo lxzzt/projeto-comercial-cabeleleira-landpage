@@ -24,10 +24,12 @@ margin: auto;}
 /* ------------------------------------------------------------------ */
 /* === SCROLL INDICATOR - CLASSE (ESTRUTURA COMPARTILHADA) === */
 /* ------------------------------------------------------------------ */
+
+
 .scroll-indicator {
     position: relative;
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     margin-top: auto;
     margin-bottom: 8vh;
     border-radius: 50%;
@@ -51,8 +53,8 @@ margin: auto;}
     position: absolute;
     top: 0;
     left: 0;
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     /* ESTA LINHA CONTROLA A ROTAÇÃO. Não remova! */
     animation: rotateText 15s linear infinite; 
     transform-origin: center;
@@ -73,8 +75,8 @@ margin: auto;}
 /* Usando SVG para o texto seguir o círculo */
 .scroll-indicator svg {
     fill: rgb(255, 255, 255);
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     top: 0;
     left: 0;
@@ -212,7 +214,7 @@ header{
 
 #section3{
     height: 100vh;
-    background-image: url(backgroundfigma/backgrounds2.jpg);
+    background-image: url(backgroundfigma/backgrounds3.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -230,7 +232,7 @@ header{
 #subtitulo2s3{font-family: 'mooli';font-size: 1rem;margin-top: 15px;margin-bottom: 5px;text-shadow: rgba(0, 0, 0, 0.342) 1px 1px 5px;}
 
 /* Estilos do botão de localização (Mantidos e Centralizados) */
-#buttonlocalization{
+.buttonlinkmiddle{
     background-color: #CDCDCD;
     border-radius:60px;
     padding: 0px 30px;
@@ -241,9 +243,9 @@ header{
     text-decoration: none;
 }
 
-#buttonlocalization span{font-size: 30px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';}
+.buttonlinkmiddle span{font-size: 30px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';}
 
-#buttonlocalization div{
+.buttonlinkmiddle div{
     display: flex;
     background-color: rgb(0, 0, 0);
     width: 40px; 
@@ -252,9 +254,9 @@ header{
     align-items: center; /* Centraliza verticalmente a imagem */
     justify-content: center; /* Centraliza horizontalmente a imagem */
 }
-#buttonlocalization div img{width: 20px;}
+.buttonlinkmiddle div img{width: 20px;}
 
-#buttonlocalization:hover{
+.buttonlinkmiddle:hover{
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, 0.192) 0px 0px 20px;
     transition: 0.5s;
@@ -335,4 +337,15 @@ header{
 }
 .faixa li:first-child {
      padding-left: 0; /* Remove o padding esquerdo no primeiro item (ou ajuste para simetria visual) */
+}
+
+#section2{
+    background-image: url(backgroundfigma/backgrounds2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
 }
