@@ -106,6 +106,8 @@ header{
     height: 160px;
     margin-top: auto;
     margin-bottom: 8vh;
+    background-color: rgba(1, 26, 53, 0.63);
+    border-radius: 50%;
 }
 
 .rotation-wrapper {
@@ -145,7 +147,6 @@ header{
 .circle-arrow {
     width: 80px;
     height: 80px;
-    border: 1px solid rgb(255, 255, 255);
     border-radius: 50%;
     display: flex;
     justify-content: center;
