@@ -437,3 +437,24 @@ header{
     height: 8px;
   }
 }
+
+
+#section4 {
+    background-image:
+    linear-gradient(
+        to bottom,
+      rgb(101, 206, 70,0.40),
+      rgb(68, 153, 44,0.75)),
+    url("backgroundfigma/fundo2e4.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+}
