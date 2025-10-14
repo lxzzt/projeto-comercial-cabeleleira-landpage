@@ -7,16 +7,29 @@
     font-family: 'msghotic';
     src: url(fontes/MS-Gothic/MSGOTHIC.TTF);
 }
+
 *{
     padding: 0;
     margin: 0;
 }
+body{
+    background-color: gray;
+}
+
+.main-wrapper{width: 100%;
+max-width: 510px;
+max-height: 610px;
+margin: auto;}
 
 header{
     position: fixed;
     top: 0;
     width: 100%;
     margin-top: 30px;
+    max-width: 510px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }
 
 
@@ -45,6 +58,8 @@ header{
     background-color: white;
     width: 3vw;
     height: .5vh;
+    min-width: 20px;
+    min-height: 2.5px;
     border-radius: 5px;
     opacity: 0.5;
 }
@@ -53,11 +68,116 @@ header{
     text-decoration: none;
 }
 .page-section {
-    min-height: 100vw;
-    padding: 50px;
+    min-height: 100%;
+    min-height: 100%;
+    padding: 1px;
 }
 
-#section1{background-color: rgb(193, 241, 186);}
-#section2{background-color: rgb(28, 17, 37);}
-#section3{background-color: rgb(44, 37, 51);}
-#section4{background-color: blueviolet;}
+#section1{
+    background-image: url(backgroundfigma/background\ s1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0; 
+}
+
+
+#textossection1 {
+    margin-top: auto;
+    margin-bottom:25vh;
+    text-align: center;
+}
+#textossection1 h1{color: #D1D1CD;}
+#textossection1 h2{color: #83858D;}
+
+/* tamanho dos textos seção1 */
+
+#titulo1s1{font-family: 'calibri';font-size: 2.2rem}
+#subtitulo1s1{font-family: msghotic;font-size: 1.1rem;margin: 5px 0px;}
+#subtitulo2s1{font-family: msghotic;font-size:1.2rem;margin: 5px 0px;}
+#subtitulo3s1{font-family: msghotic;font-size:1.3rem;margin: 5px 0px;}
+
+/* CIRCULO (Fica Estático - Removemos a animação de pulo daqui) */
+.circle-arrow {
+    width: 80px;
+    height: 80px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Posicionamento no centro do contêiner maior (200x200) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    /* REMOVIDO: animation: bounce 2s infinite; */
+}
+
+/* A SETA (Recebe a Animação de Pulo) */
+.arrow-icon {
+    font-size: 2em;
+    color: white;
+    
+    /* ADICIONADO: Aplica a animação de pulo APENAS à seta */
+    animation: arrowBounce 2s infinite; 
+}
+
+/* Keyframes para o pulo da seta (Mudamos o nome) */
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px); /* Pulo mais suave */
+    }
+    60% {
+        transform: translateY(-4px); 
+    }
+}
+
+/* 2. Animação do Texto (Rotação) */
+.rotation-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    /* Mantém a rotação */
+    animation: rotateText 20s linear infinite; 
+}
+
+.rotated-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: white;
+    font-size: 0.8em;
+    font-family: 'msghotic', sans-serif;
+    
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.2em; /* Diminui o espaçamento para caber mais */
+    
+    /* AJUSTE ESSENCIAL: Controla a posição vertical do texto */
+    /* Empurra o texto para a borda superior do contêiner 200x200px */
+    line-height: 25px; 
+}
+
+/* O Keyframes para a rotação continua o mesmo */
+@keyframes rotateText {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
