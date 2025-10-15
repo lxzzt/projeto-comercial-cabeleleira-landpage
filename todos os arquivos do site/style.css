@@ -46,7 +46,7 @@ margin: auto;}
 }
 #scroll-indicator-s2 {
     background-color: #79345E; /* Cor da Seção 3 */
-    margin-top: 2vh;
+    margin-top: 4vh;
 }
 
 /* ----------------------------------------------------------------- */
@@ -300,7 +300,7 @@ header{
     /* REMOVA: margin-top: 10vh; - JÁ ALINHADO PELO JUSTIFY-CONTENT */
     background-color: #E6E6E6;
     width: 80%;
-    height: 20%;
+    height: 0%;
     /* Altura definida por proporção (padding-bottom), para não depender do height fixo/relativo */
     /* Se a imagem for quadrada, use 80%. Se for mais alta, use um valor maior (ex: 100%) */
     padding-bottom: 80%; /* Altura é 80% da largura. Ajuste conforme a proporção das suas imagens */
