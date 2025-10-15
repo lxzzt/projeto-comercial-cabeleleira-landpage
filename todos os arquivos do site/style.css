@@ -38,15 +38,16 @@ margin: auto;}
 /* IDs para aplicar cores diferentes (Prioridade Alta) */
 /* ATENÇÃO: Verifique se o nome no seu CSS corresponde ao nome no seu HTML (#scroll-indicator-s1) */
 #scroll-indicator-s1 { 
-    background-color: rgb(1, 26, 53,0.63); /* Usando a nova cor #4b89cf */
+    background-color: rgba(245, 245, 245, 0.63); /* Usando a nova cor #4b89cf */
 }
 
 #scroll-indicator-s3 {
     background-color: #AC4423; /* Cor da Seção 3 */
+    margin: 0px 0px 1vh 0px;
 }
 #scroll-indicator-s2 {
     background-color: #79345E; /* Cor da Seção 3 */
-    margin-top: 4vh;
+    margin: 3vh 0px 2vh 0px;
 }
 
 /* ----------------------------------------------------------------- */
@@ -204,6 +205,7 @@ header{
 #textossection1 {
     margin-top: 45vh;
     text-align: center;
+    margin-bottom: 3vh;
 }
 #textossection1 h1{color: #D1D1CD;}
 #textossection1 h2{color: #83858D;}
@@ -227,7 +229,7 @@ header{
 
 #textossection3{
     text-align: center;
-    margin-top: 25vh;
+    margin-top: 10vh;
 }
 #titulo1s3{font-family: 'montserrat';font-size: 2rem;margin-top: 5px;margin-bottom: 10px;}
 #subtitulo1s3{font-family: 'montserrat';font-size: 1.3rem;margin-top: 5px;margin-bottom: 20px;}
@@ -236,7 +238,7 @@ header{
 
 /* Estilos do botão de localização (Mantidos e Centralizados) */
 .buttonlinkmiddle{
-    background-color: #cfcfcf;
+    background-color: #e6e6e6;
     border-radius:60px;
     margin-bottom: 2vh;
     display: flex;
@@ -246,6 +248,11 @@ header{
 }
 
 .buttonlinkmiddle span{font-size: 25px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';padding: 0px 0px 0px 10px;}
+#instalogo{
+    background-color: #f4fff600;
+}
+#instalogo img{width: 55px;
+}
 
 .buttonlinkmiddle div{
     display: flex;
@@ -256,6 +263,8 @@ header{
     align-items: center; /* Centraliza verticalmente a imagem */
     justify-content: center; /* Centraliza horizontalmente a imagem */
 }
+#backgroundzap{background-color: #00c721;}
+
 .buttonlinkmiddle div img{width: 20px;}
 
 .buttonlinkmiddle:hover{
@@ -281,7 +290,6 @@ header{
       rgba(98, 40, 215, 0.42) 100%   /* roxo translúcido */
     ),
     url("backgroundfigma/fundo2e4.jpg");
-
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -298,13 +306,13 @@ header{
     /* REMOVA: margin-top: 10vh; - JÁ ALINHADO PELO JUSTIFY-CONTENT */
     background-color: #E6E6E6;
     width: 80%;
-    height: 0%;
+    height: 5%;
     /* Altura definida por proporção (padding-bottom), para não depender do height fixo/relativo */
     /* Se a imagem for quadrada, use 80%. Se for mais alta, use um valor maior (ex: 100%) */
     padding-bottom: 80%; /* Altura é 80% da largura. Ajuste conforme a proporção das suas imagens */
     position: relative; /* Essencial para o padding-bottom funcionar como altura */
     border-radius: 25px;
-    margin: 2vh 0px; /* Margem vertical para centralizar melhor */
+    margin: 10vh 0px 2vh 0px; /* Margem vertical para centralizar melhor */
     max-height: 450px; /* Define uma altura máxima se as imagens ficarem muito grandes em telas maiores */
 }
 
@@ -344,6 +352,10 @@ header{
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+
+#faixas4{
+    margin-bottom: 1vh;
 }
 
 /* 🎞️ Animação contínua */
@@ -452,4 +464,61 @@ header{
     flex-direction: column;
     align-items: center; 
     justify-content: flex-start;
+}
+#buttonzap{
+    margin-top: 2vh;
+}
+
+#nota{margin-top: 10vh;}
+#nota a{
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 4px;
+    gap: 20px;
+    margin-top: 10vh;
+    font-family: 'calibri';
+    text-decoration: none;
+    color: rgb(0, 86, 156);
+    margin: 10px 0px;
+    font-size: 12px;
+}
+#nota div{
+    display: flex;
+    align-items: center;
+}
+#nota div img{width: 2vh;}
+
+#experiencia{text-decoration: none;}
+
+
+#nota a:hover{
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 20px;
+    transition: 0.5s;
+}
+
+#quadro{background-color: rgb(61, 61, 61);width: 90%;height: 70%;border-radius: 20px;
+}
+
+#quadro p{font-size: 16px;font-weight: bold;font-family: 'calibri';text-align: center;margin-top: 10px;color: white;}
+/* --------------------------------- */
+/* Estilo do Contêiner Principal do GRID */
+/* --------------------------------- */
+/* Mantemos o grid dos cards para o layout 2x3 */
+.quadros-dos-quadros {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px; /* Adicionado padding para afastar das bordas do '#quadro' */
+}
+
+.quadronota {
+    background-color: #F0F0F0; 
+    border-radius: 25px; 
+    padding-bottom: 100%;
+    height: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    border: 3px solid #333; /* Borda escura suave para destacar */
 }
