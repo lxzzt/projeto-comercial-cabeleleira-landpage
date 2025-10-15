@@ -31,7 +31,6 @@ margin: auto;}
     width: 100px;
     height: 100px;
     margin-top: auto;
-    margin-bottom: 8vh;
     border-radius: 50%;
     /* Cor de fundo removida daqui para ser controlada APENAS pelos IDs */
 }  
@@ -44,6 +43,10 @@ margin: auto;}
 
 #scroll-indicator-s3 {
     background-color: #AC4423; /* Cor da Seção 3 */
+}
+#scroll-indicator-s2 {
+    background-color: #79345E; /* Cor da Seção 3 */
+    margin-top: 2vh;
 }
 
 /* ----------------------------------------------------------------- */
@@ -233,17 +236,16 @@ header{
 
 /* Estilos do botão de localização (Mantidos e Centralizados) */
 .buttonlinkmiddle{
-    background-color: #CDCDCD;
+    background-color: #cfcfcf;
     border-radius:60px;
-    padding: 0px 30px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 2vh;
     display: flex;
     align-items: center; /* Garante alinhamento vertical */
     text-decoration: none;
+    padding: 5px 5px 5px 0px;
 }
 
-.buttonlinkmiddle span{font-size: 30px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';}
+.buttonlinkmiddle span{font-size: 25px;color: #1a4d8c;font-weight: 500;margin:0px 15px 0px 0px;font-family: 'mukta malar';padding: 0px 0px 0px 10px;}
 
 .buttonlinkmiddle div{
     display: flex;
@@ -258,7 +260,7 @@ header{
 
 .buttonlinkmiddle:hover{
     transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.192) 0px 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 20px;
     transition: 0.5s;
 }
 #localizacao1s3:hover{
@@ -298,17 +300,14 @@ header{
     /* REMOVA: margin-top: 10vh; - JÁ ALINHADO PELO JUSTIFY-CONTENT */
     background-color: #E6E6E6;
     width: 80%;
+    height: 20%;
     /* Altura definida por proporção (padding-bottom), para não depender do height fixo/relativo */
     /* Se a imagem for quadrada, use 80%. Se for mais alta, use um valor maior (ex: 100%) */
     padding-bottom: 80%; /* Altura é 80% da largura. Ajuste conforme a proporção das suas imagens */
     position: relative; /* Essencial para o padding-bottom funcionar como altura */
-    border-radius: 30px;
-    margin: 5vh 0; /* Margem vertical para centralizar melhor */
+    border-radius: 25px;
+    margin: 2vh 0px; /* Margem vertical para centralizar melhor */
     max-height: 450px; /* Define uma altura máxima se as imagens ficarem muito grandes em telas maiores */
-}
-
-#buttoninstagram {
-    margin-top: 5vh;
 }
 
 .faixa {
@@ -370,7 +369,7 @@ header{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 25px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
