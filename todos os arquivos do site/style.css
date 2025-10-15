@@ -498,27 +498,3 @@ header{
     box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 20px;
     transition: 0.5s;
 }
-
-#quadro{background-color: rgb(61, 61, 61);width: 90%;height: 70%;border-radius: 20px;
-}
-
-#quadro p{font-size: 16px;font-weight: bold;font-family: 'calibri';text-align: center;margin-top: 10px;color: white;}
-/* --------------------------------- */
-/* Estilo do Contêiner Principal do GRID */
-/* --------------------------------- */
-/* Mantemos o grid dos cards para o layout 2x3 */
-.quadros-dos-quadros {
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px; /* Adicionado padding para afastar das bordas do '#quadro' */
-}
-
-.quadronota {
-    background-color: #F0F0F0; 
-    border-radius: 25px; 
-    padding-bottom: 100%;
-    height: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-    border: 3px solid #333; /* Borda escura suave para destacar */
-}
