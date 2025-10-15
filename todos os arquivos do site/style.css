@@ -466,7 +466,7 @@ header{
     justify-content: flex-start;
 }
 #buttonzap{
-    margin-top: 10vh;
+    margin-top: 2vh;
 }
 
 #nota{margin-top: 10vh;}
@@ -497,4 +497,92 @@ header{
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 20px;
     transition: 0.5s;
+}
+#quadro-modelo{
+    background-color: gray;width: 45vh;height: 60vh;
+    margin-top: 10vh;
+}
+/* === QUADRO MODELO FIXO (mantém 45vh x 60vh) === */
+#quadro-modelo {
+  background: white;
+  width: 45vh;
+  height: 60vh;
+  margin-top: 12vh;
+  border-radius: 18px;
+  box-shadow: rgba(0,0,0,0.25) 0 5px 15px;
+  overflow: hidden;            /* ESSENCIAL: esconde o que não cabe */
+  position: relative;
+  display: flex;
+  align-items: stretch;        /* garante altura inteira */
+  justify-content: flex-start;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* SLIDER: strip perfeito sem gaps */
+.review-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(.22,.9,.3,1);
+  will-change: transform;
+  gap: 0;                       /* remove espaços entre slides */
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* CADA REVIEW: ocupa EXATAMENTE 100% do quadro (sem margens escondidas) */
+.review {
+  flex: 0 0 100%;               /* travado para 100% da largura do container */
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 3vh 2.4vh;           /* espaçamento interno */
+  overflow-y: auto;             /* rolagem vertical se o texto for longo */
+  scroll-behavior: smooth;
+}
+
+/* Tipografia ajustável (não quebra) */
+.review h3 {
+  color: #1a4d8c;
+  margin: 0 0 1vh 0;
+  font-size: clamp(1rem, 1.8vh, 1.4rem);
+}
+.review p {
+  margin: 0;
+  font-size: clamp(0.85rem, 1.65vh, 1.05rem);
+  line-height: 1.45;
+  color: #333;
+}
+
+/* INDICADORES (bolinhas) */
+.review-dots {
+  position: absolute;
+  bottom: 1.6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+  pointer-events: auto;
+}
+.review-dots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: #0f4b7a;    /* cor base */
+  opacity: 0.35;         /* baixa opacidade por padrão */
+  transition: opacity .25s ease, transform .18s ease;
+  cursor: pointer;
+}
+.review-dots button.active {
+  opacity: 1;            /* ativa mais visível */
+  transform: scale(1.12);
+}
+
+/* Ajuste mobile: quando a tela ficar pequena, usar vw para manter comportamento */
+@media (max-width: 600px) {
+  #quadro-modelo { width: 80vw; height: 55vh; margin-top: 10vh; }
+  .review-dots { bottom: 1.2vh; gap: 6px; }
+  .review-dots button { width: 8px; height: 8px; }
 }

@@ -94,3 +94,118 @@ document.addEventListener("DOMContentLoaded", function() {
     goToSlide(currentIndex);
   });
 });
+// === SLIDER DE AVALIAÇÕES (TOUCH + POINTER + DOTS) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderWrap = document.getElementById("quadro-modelo");
+  const reviewSlider = sliderWrap.querySelector(".review-slider");
+  const reviews = Array.from(reviewSlider.querySelectorAll(".review"));
+  const dotsContainer = sliderWrap.querySelector(".review-dots");
+
+  let index = 0;
+  let startX = 0;
+  let currentX = 0;
+  let isPointerDown = false;
+  let autoSlideTimer = null;
+  const idleDefault = 5000; // 5s
+  const idleAfterInteraction = 10000; // 10s
+
+  // cria bolinhas
+  reviews.forEach((_, i) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("aria-label", `Mostrar avaliação ${i + 1}`);
+    btn.addEventListener("click", () => {
+      index = i;
+      updatePosition();
+      restartAutoSlide(idleAfterInteraction);
+    });
+    dotsContainer.appendChild(btn);
+  });
+  const dots = Array.from(dotsContainer.children);
+
+  function updateDots() {
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  }
+
+  function updatePosition() {
+    // usa percent baseado no index; cada slide tem exatamente 100% do container
+    reviewSlider.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
+  }
+
+  function next() {
+    index = (index + 1) % reviews.length;
+    updatePosition();
+  }
+
+  function prev() {
+    index = (index - 1 + reviews.length) % reviews.length;
+    updatePosition();
+  }
+
+  function restartAutoSlide(timeout = idleDefault) {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = setInterval(next, timeout);
+  }
+
+  // POINTER (mouse e touch via pointer events)
+  reviewSlider.addEventListener("pointerdown", (e) => {
+    isPointerDown = true;
+    startX = e.clientX;
+    currentX = startX;
+    reviewSlider.style.transition = "none"; // desliga transição enquanto arrasta
+    reviewSlider.setPointerCapture(e.pointerId);
+    clearInterval(autoSlideTimer); // pausa auto enquanto o usuário interage
+  });
+
+  reviewSlider.addEventListener("pointermove", (e) => {
+    if (!isPointerDown) return;
+    currentX = e.clientX;
+    const delta = currentX - startX;
+    // aplica um deslocamento temporário visual (parcial), sem alterar index
+    const percentDelta = (delta / sliderWrap.clientWidth) * 100;
+    reviewSlider.style.transform = `translateX(calc(-${index * 100}% + ${percentDelta}%))`;
+  });
+
+  function endPointer(e) {
+    if (!isPointerDown) return;
+    isPointerDown = false;
+    reviewSlider.style.transition = ""; // restaura transição
+    const delta = currentX - startX;
+    const threshold = sliderWrap.clientWidth * 0.12; // 12% da largura
+    if (delta < -threshold) {
+      next();
+    } else if (delta > threshold) {
+      prev();
+    } else {
+      updatePosition(); // volta para a posição atual
+    }
+    restartAutoSlide(idleAfterInteraction);
+  }
+
+  reviewSlider.addEventListener("pointerup", endPointer);
+  reviewSlider.addEventListener("pointercancel", endPointer);
+  reviewSlider.addEventListener("pointerleave", (e) => {
+    // se o ponteiro sair e não estiver pressionado, ignora
+    if (isPointerDown) endPointer(e);
+  });
+
+  // teclado (esquerda/direita)
+  sliderWrap.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { prev(); restartAutoSlide(idleAfterInteraction); }
+    if (e.key === "ArrowRight") { next(); restartAutoSlide(idleAfterInteraction); }
+  });
+
+  // garante que ao redimensionar a janela o transform continue correto (evita "meias" por recalculo)
+  window.addEventListener("resize", () => {
+    // força recalcular transform (percent funciona, mas reforçamos)
+    updatePosition();
+  });
+
+  // inicia tudo
+  updatePosition();
+  restartAutoSlide(idleDefault);
+
+  // acessibilidade: torne o container focável para receber teclado
+  sliderWrap.setAttribute("tabindex", "0");
+});
