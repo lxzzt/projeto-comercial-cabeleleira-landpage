@@ -17,8 +17,8 @@ body{
 }
 
 .main-wrapper{width: 100%;
-max-width: 400px;
-max-height: 650px;
+/* max-width: 400px;
+max-height: 650px; */
 margin: auto;}
 
 /* ---------------------------------------------------------------- */
@@ -54,7 +54,7 @@ header{
 .nav img{
     width: 16px;
     height: 16px;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .separacao-icones{
@@ -70,6 +70,11 @@ header{
 .nav li a{
     text-decoration: none;
 }
+
+.page-section * {
+  pointer-events: auto;
+}
+
 .page-section {
     max-height: 100vh;
     padding: 1px;
@@ -601,4 +606,59 @@ header{
 #scroll-indicator-s3 {
     background-color: #AC4423; /* Cor da Seção 3 */
     margin: 0px 0px 1vh 0px;
+}
+/* ===================================================== */
+/* === EFEITO DE TRANSIÇÃO CIRCULAR ENTRE SEÇÕES ======= */
+/* ===================================================== */
+
+/* Área invisível que cria a altura de rolagem total */
+.scroll-area {
+  height: 400vh; /* 4 seções = 400% da tela */
+  background: transparent;
+}
+
+/* Palco fixo que exibe as seções empilhadas */
+.stage {
+  position: fixed;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  overflow: hidden;
+  pointer-events: none; /* Permite clicar em elementos fora da animação */
+  z-index: 0; /* fica atrás do header */
+  will-change: transform, clip-path;
+}
+
+/* Cada seção (página) sobreposta */
+.page-section {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(0% at 50% 50%);
+  -webkit-clip-path: circle(0% at 50% 50%);
+  will-change: clip-path;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color 0.8s ease;
+}
+
+/* Primeira seção já visível */
+#section1 {
+  clip-path: none;
+}
+
+/* Cores / fundos de fallback (para o efeito de máscara) */
+#section1 { background-color: #246b2f; }
+#section2 { background-color: #1a4d8c; }
+#section3 { background-color: #b18b00; }
+#section4 { background-color: #9c2a2a; }
+
+/* Suaviza rolagem no navegador */
+html, body {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  height: 100%;
+  width: 100%;
 }
