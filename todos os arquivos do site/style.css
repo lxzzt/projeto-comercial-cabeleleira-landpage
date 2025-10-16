@@ -94,7 +94,7 @@ header{
 }
 #textossection1 h1{color: #D1D1CD;}
 #textossection1 h2{color: #83858D;}
-#textossection1 p{color: #e0e0e0;}
+#textossection1 p{color: #ffffff;font-family: 'calibri';}
 
 /* tamanho dos textos seção1 */
 
@@ -596,7 +596,7 @@ header{
 }
 #scroll-indicator-s2 {
     background-color: #79345E; /* Cor da Seção 3 */
-    margin: 3vh 0px 2vh 0px;
+    margin: 6vh 0px 2vh 0px;
 }
 #scroll-indicator-s3 {
     background-color: #AC4423; /* Cor da Seção 3 */
