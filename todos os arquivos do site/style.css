@@ -21,120 +21,6 @@ max-width: 330px;
 max-height: 610px;
 margin: auto;}
 
-/* ------------------------------------------------------------------ */
-/* === SCROLL INDICATOR - CLASSE (ESTRUTURA COMPARTILHADA) === */
-/* ------------------------------------------------------------------ */
-
-
-.scroll-indicator {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin-top: auto;
-    border-radius: 50%;
-    /* Cor de fundo removida daqui para ser controlada APENAS pelos IDs */
-}  
-
-/* IDs para aplicar cores diferentes (Prioridade Alta) */
-/* ATENÇÃO: Verifique se o nome no seu CSS corresponde ao nome no seu HTML (#scroll-indicator-s1) */
-#scroll-indicator-s1 { 
-    background-color: rgba(245, 245, 245, 0.63); /* Usando a nova cor #4b89cf */
-}
-
-#scroll-indicator-s3 {
-    background-color: #AC4423; /* Cor da Seção 3 */
-    margin: 0px 0px 1vh 0px;
-}
-#scroll-indicator-s2 {
-    background-color: #79345E; /* Cor da Seção 3 */
-    margin: 3vh 0px 2vh 0px;
-}
-
-/* ----------------------------------------------------------------- */
-/* === TEXTO CURVO GIRANDO (NÃO REMOVA ESTES BLOCOS DE ANIMAÇÃO) === */
-/* ----------------------------------------------------------------- */
-.rotation-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    /* ESTA LINHA CONTROLA A ROTAÇÃO. Não remova! */
-    animation: rotateText 15s linear infinite; 
-    transform-origin: center;
-}
-
-.rotated-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    color: rgb(255, 255, 255);
-    font-family: 'msghotic', sans-serif;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    text-align: center;
-}
-
-/* Usando SVG para o texto seguir o círculo */
-.scroll-indicator svg {
-    fill: rgb(255, 255, 255);
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: visible;
-}
-
-/* Círculo e seta */
-.circle-arrow {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Animação de pulo da seta */
-.arrow-icon {
-    font-size: 2em;
-    color: white;
-    animation: arrowBounce 2s infinite;
-}
-
-/* ---------------------------------------------------------------- */
-/* === KEYFRAMES (O CORAÇÃO DAS ANIMAÇÕES) === */
-/* ---------------------------------------------------------------- */
-
-/* Pulo da seta - SINTAXE CORRIGIDA E LIMPA */
-@keyframes arrowBounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-8px);
-    }
-    60% {
-        transform: translateY(-4px);
-    }
-}
-
-/* Rotação do texto */
-@keyframes rotateText {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 /* ---------------------------------------------------------------- */
 /* === ESTILOS GERAIS DO LAYOUT === */
 /* ---------------------------------------------------------------- */
@@ -203,12 +89,13 @@ header{
 
 
 #textossection1 {
-    margin-top: 45vh;
+    margin-top: 35vh;
     text-align: center;
-    margin-bottom: 3vh;
+    margin-bottom: 10vh;
 }
 #textossection1 h1{color: #D1D1CD;}
 #textossection1 h2{color: #83858D;}
+#textossection1 p{color: #e0e0e0;}
 
 /* tamanho dos textos seção1 */
 
@@ -216,6 +103,7 @@ header{
 #subtitulo1s1{font-family: msghotic;font-size: 1.1rem;margin: 5px 0px;}
 #subtitulo2s1{font-family: msghotic;font-size:1.2rem;margin: 5px 0px;}
 #subtitulo3s1{font-family: msghotic;font-size:1.3rem;margin: 5px 0px;}
+#subtitulo4s1{margin: 0px 20px;font-size: 1rem;font-family: 'calibri';}
 
 #section3{
     height: 100vh;
@@ -229,7 +117,7 @@ header{
 
 #textossection3{
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
 #titulo1s3{font-family: 'montserrat';font-size: 2rem;margin-top: 5px;margin-bottom: 10px;}
 #subtitulo1s3{font-family: 'montserrat';font-size: 1.3rem;margin-top: 5px;margin-bottom: 20px;}
@@ -439,13 +327,6 @@ header{
   background-color: white;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  .dots button {
-    width: 8px;
-    height: 8px;
-  }
-}
 
 
 #section4 {
@@ -582,4 +463,143 @@ header{
   #quadro-modelo { width: 80vw; height: 55vh; margin-top: 10vh; }
   .review-dots { bottom: 1.2vh; gap: 6px; }
   .review-dots button { width: 8px; height: 8px; }
+}
+
+
+/* ------------------------------------------------------------------ */
+/* === SCROLL INDICATOR - CLASSE (ESTRUTURA COMPARTILHADA) === */
+/* ------------------------------------------------------------------ */
+
+
+.scroll-indicator {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-top: auto;
+    border-radius: 50%;
+    /* Cor de fundo removida daqui para ser controlada APENAS pelos IDs */
+}  
+
+/* IDs para aplicar cores diferentes (Prioridade Alta) */
+/* ATENÇÃO: Verifique se o nome no seu CSS corresponde ao nome no seu HTML (#scroll-indicator-s1) */
+
+
+
+/* ----------------------------------------------------------------- */
+/* === TEXTO CURVO GIRANDO (NÃO REMOVA ESTES BLOCOS DE ANIMAÇÃO) === */
+/* ----------------------------------------------------------------- */
+
+.scroll-indicator {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotation-wrapper {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  animation: rotate 20s linear infinite;
+  transform-origin: 50% 50%; /* garante que gira pelo centro */
+}
+
+.scroll-indicator svg {
+  width: 100%;
+  height: 100%;
+  font-family: 'msghotic', sans-serif;
+  font-size: 0.9rem;
+  fill: white;
+  transform-box: fill-box; /* necessário para browsers novos */
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.circle-arrow {
+  position: relative;
+  z-index: 10;
+}
+
+.arrow-icon {
+  font-size: 2rem;
+  color: white;
+  animation: arrowBounce 2s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* Usando SVG para o texto seguir o círculo */
+.scroll-indicator svg {
+    font-family: 'msghotic', sans-serif;
+    fill: rgb(255, 255, 255);
+    width: 100px;
+    height: 100px;
+    font-size: 1em;
+    letter-spacing: 10px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+
+/* Círculo e seta */
+.circle-arrow {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animação de pulo da seta */
+.arrow-icon {
+    font-size: 2.5em;
+    color: rgb(253, 253, 253);
+    animation: arrowBounce 2s infinite;
+}
+
+/* ---------------------------------------------------------------- */
+/* === KEYFRAMES (O CORAÇÃO DAS ANIMAÇÕES) === */
+/* ---------------------------------------------------------------- */
+
+/* Pulo da seta - SINTAXE CORRIGIDA E LIMPA */
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+
+#scroll-indicator-s1 { 
+    background-color: rgb(1, 26, 53,0.63); /* Usando a nova cor #4b89cf */
+}
+#scroll-indicator-s2 {
+    background-color: #79345E; /* Cor da Seção 3 */
+    margin: 3vh 0px 2vh 0px;
+}
+#scroll-indicator-s3 {
+    background-color: #AC4423; /* Cor da Seção 3 */
+    margin: 0px 0px 1vh 0px;
 }
