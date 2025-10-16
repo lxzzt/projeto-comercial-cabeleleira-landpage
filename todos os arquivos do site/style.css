@@ -42,7 +42,6 @@ header{
     list-style: none;
     justify-content: center;
     align-items: center;
-
 }
 
 .nav li {
@@ -53,17 +52,17 @@ header{
 }
 
 .nav img{
-    width: 4vw;
-    height: 4vh;
+    width: 16px;
+    height: 16px;
     opacity: 0.5;
 }
 
 .separacao-icones{
-    background-color: white;
-    width: 3vw;
-    height: .5vh;
+    background-color: rgb(255, 255, 255);
+    width: 20px;
+    height: 3px;
     min-width: 20px;
-    min-height: 2.5px;
+    min-height: 3px;
     border-radius: 5px;
     opacity: 0.5;
 }
