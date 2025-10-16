@@ -15,10 +15,6 @@
 body{
     background-color: gray;
 }
-
-.main-wrapper{width: 100%;
-margin: auto;}
-
 /* ---------------------------------------------------------------- */
 /* === ESTILOS GERAIS DO LAYOUT === */
 /* ---------------------------------------------------------------- */
@@ -616,14 +612,22 @@ header{
 }
 
 /* Palco fixo que exibe as seções empilhadas */
+
+/* Palco fixo, centralizado e CLIPADO em 640px */
 .stage {
   position: fixed;
-  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
-  overflow: hidden;
-  pointer-events: none; /* Permite clicar em elementos fora da animação */
-  z-index: 0; /* fica atrás do header */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 350px;   /* <<< limite duro */
+  overflow: hidden;   /* <<< tudo que passar, some */
+  pointer-events: none; /* você já usa pointer-events nos filhos */
+  z-index: 0;
   will-change: transform, clip-path;
 }
+
 
 /* Cada seção (página) sobreposta */
 .page-section {
@@ -654,4 +658,12 @@ html, body {
   overscroll-behavior: none;
   height: 100%;
   width: 100%;
+}
+
+
+.main-wrapper {
+  width: 100%;
+  max-width: 640px;       /* limite de largura */
+  margin: 0 auto;         /* centraliza horizontalmente */
+  background-color: inherit; /* mantém o fundo geral */
 }
