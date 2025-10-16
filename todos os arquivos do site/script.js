@@ -1,3 +1,5 @@
+// textos rotativos
+
 document.addEventListener("DOMContentLoaded", () => {
   // todos os SVGs do indicador
   const rotors = document.querySelectorAll("svg g[id^='rotor-']");
@@ -12,6 +14,129 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* === SLIDER UNIVERSAL PARA SEÇÃO 2 E 4 === */
+document.addEventListener("DOMContentLoaded", () => {
+
+  function createSlider(containerSelector, slideSelector, dotsSelector, intervalTime = 3000) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const slidesWrapper = container.querySelector(slideSelector);
+    const slides = slidesWrapper.children;
+    const dotsContainer = container.querySelector(dotsSelector);
+
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    let autoSlide;
+    let autoDelay = intervalTime;
+    let userInteracted = false;
+
+    // cria as bolinhas
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement("button");
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateSlider();
+        pauseAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.querySelectorAll("button");
+
+    function updateSlider() {
+      slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(nextSlide, autoDelay);
+    }
+
+    function pauseAutoSlide() {
+      clearInterval(autoSlide);
+      userInteracted = true;
+      autoDelay = 7000; // 7 segundos após interação
+      startAutoSlide();
+      setTimeout(() => {
+        userInteracted = false;
+        autoDelay = intervalTime; // volta pro tempo padrão (3s)
+      }, 7000);
+    }
+
+    // Eventos de toque/arraste
+    slidesWrapper.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.pageX;
+      clearInterval(autoSlide);
+    });
+
+    slidesWrapper.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      const diff = e.pageX - startX;
+      slidesWrapper.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+    });
+
+    slidesWrapper.addEventListener("mouseup", (e) => {
+      if (!isDragging) return;
+      const diff = e.pageX - startX;
+      if (diff > 50) {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      } else if (diff < -50) {
+        currentIndex = (currentIndex + 1) % slides.length;
+      }
+      isDragging = false;
+      updateSlider();
+      pauseAutoSlide();
+    });
+
+    // toque em telas móveis
+    slidesWrapper.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      clearInterval(autoSlide);
+    });
+
+    slidesWrapper.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      const diff = e.touches[0].clientX - startX;
+      slidesWrapper.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diff}px))`;
+    });
+
+    slidesWrapper.addEventListener("touchend", (e) => {
+      if (!isDragging) return;
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff > 50) {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      } else if (diff < -50) {
+        currentIndex = (currentIndex + 1) % slides.length;
+      }
+      isDragging = false;
+      updateSlider();
+      pauseAutoSlide();
+    });
+
+    // inicia
+    updateSlider();
+    startAutoSlide();
+  }
+
+  /* === INICIALIZA SLIDERS === */
+
+  // 🟣 Slider da seção 2 (Instagram)
+  createSlider(".conteiner-insta", ".slides", ".dots", 3000);
+
+  // 🟢 Slider da seção 4 (Reviews)
+  createSlider("#quadro-modelo", ".review-slider", ".review-dots", 3000);
+});
+
+
 // ================================================
 // === EFEITO DE TRANSIÇÃO CIRCULAR ENTRE SEÇÕES ===
 // ================================================
@@ -43,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { 
         clipPath: "circle(150% at 50% 50%)",
         ease: "power2.out",
-        duration: 1.5
+        duration: 1
       },
       i // deslocamento relativo (cada seção entra em sequência)
     );

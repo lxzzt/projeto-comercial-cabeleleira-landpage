@@ -17,8 +17,6 @@ body{
 }
 
 .main-wrapper{width: 100%;
-/* max-width: 400px;
-max-height: 650px; */
 margin: auto;}
 
 /* ---------------------------------------------------------------- */
@@ -641,7 +639,7 @@ header{
   align-items: center;
   text-align: center;
   overflow: hidden;
-  transition: background-color 0.8s ease;
+  transition: background-color 2s ease;
 }
 
 /* Primeira seção já visível */
@@ -649,11 +647,6 @@ header{
   clip-path: none;
 }
 
-/* Cores / fundos de fallback (para o efeito de máscara) */
-#section1 { background-color: #246b2f; }
-#section2 { background-color: #1a4d8c; }
-#section3 { background-color: #b18b00; }
-#section4 { background-color: #9c2a2a; }
 
 /* Suaviza rolagem no navegador */
 html, body {
