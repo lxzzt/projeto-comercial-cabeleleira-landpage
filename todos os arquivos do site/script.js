@@ -153,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top top",
       end: "bottom bottom",
       scrub: 1.5,
-      pin: true,
     }
   });
 
@@ -176,5 +175,59 @@ document.addEventListener("DOMContentLoaded", () => {
     // opcional: esmaece o texto da seção anterior
     tl.to(prevSection, { opacity: 0, duration: 0.6 }, i);
     tl.to(section, { opacity: 1, duration: 0.8 }, i);
+  });
+});
+// === HEADER NAV - PREENCHIMENTO PROGRESSIVO POR SCROLL (versão final) ===
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const navIcons = gsap.utils.toArray(".nav li img");
+  const separacoes = gsap.utils.toArray(".separacao-icones");
+  const sections = gsap.utils.toArray(".page-section");
+  const totalSecoes = sections.length;
+
+  // Estado inicial
+  gsap.set(navIcons, { opacity: 0.4, filter: "brightness(0.7)" });
+  gsap.set(separacoes, { backgroundColor: "white", opacity: 0.4, scaleX: 0, transformOrigin: "left center" });
+
+  // Primeiro ícone ativo ao carregar
+  gsap.set(navIcons[0], { opacity: 1, filter: "brightness(1)" });
+
+  // === ScrollTrigger geral sincronizado com rolagem ===
+  ScrollTrigger.create({
+    trigger: ".scroll-area",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1,
+    onUpdate: (self) => {
+      const progress = self.progress; // valor entre 0 e 1
+      const etapa = progress * (totalSecoes - 1);
+
+      // Atualiza ícones
+      navIcons.forEach((icon, i) => {
+        const ativo = etapa >= i;
+        gsap.to(icon, {
+          opacity: ativo ? 1 : 0.4,
+          filter: ativo ? "brightness(1)" : "brightness(0.7)",
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+
+      // Atualiza barras progressivamente
+      separacoes.forEach((bar, i) => {
+        const start = i / (totalSecoes - 1);
+        const end = (i + 1) / (totalSecoes - 1);
+        const localProgress = gsap.utils.clamp(0, 1, (progress - start) / (end - start));
+
+        gsap.to(bar, {
+          scaleX: localProgress,
+          opacity: localProgress > 0 ? 1 : 0.4,
+          backgroundColor: "white",
+          ease: "none",
+          duration: 0.1
+        });
+      });
+    }
   });
 });

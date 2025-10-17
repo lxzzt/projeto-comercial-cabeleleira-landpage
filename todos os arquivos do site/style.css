@@ -48,7 +48,6 @@ header{
 .nav img{
     width: 16px;
     height: 16px;
-    opacity: 0.4;
 }
 
 .separacao-icones{
@@ -58,7 +57,10 @@ header{
     min-width: 20px;
     min-height: 3px;
     border-radius: 5px;
-    opacity: 0.5;
+}
+.nav img, .separacao-icones {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
 .nav li a{
