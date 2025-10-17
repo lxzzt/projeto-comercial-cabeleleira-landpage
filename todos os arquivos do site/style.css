@@ -597,7 +597,7 @@ header{
 }
 #scroll-indicator-s2 {
     background-color: #79345E; /* Cor da Seção 3 */
-    margin: 6vh 0px 2vh 0px;
+    margin: 2vh 0px 0vh 0px;
 }
 #scroll-indicator-s3 {
     background-color: #AC4423; /* Cor da Seção 3 */
@@ -623,7 +623,7 @@ header{
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 400px;   /* <<< limite duro */
+  max-width: 380px;   /* <<< limite duro */
   overflow: hidden;   /* <<< tudo que passar, some */
   pointer-events: none; /* você já usa pointer-events nos filhos */
   z-index: 0;
