@@ -623,7 +623,7 @@ header{
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 350px;   /* <<< limite duro */
+  max-width: 400px;   /* <<< limite duro */
   overflow: hidden;   /* <<< tudo que passar, some */
   pointer-events: none; /* você já usa pointer-events nos filhos */
   z-index: 0;
