@@ -73,7 +73,6 @@ header{
 
 .page-section {
     max-height: 100vh;
-    padding: 1px;
 }
 
 #section1{
@@ -221,7 +220,6 @@ header{
   display: flex;
   gap: 3rem;
   list-style: none;
-  padding: 0.1rem;
   margin: 0;
   font-family: 'mukta malar', sans-serif;
   font-weight: 500;
@@ -623,7 +621,7 @@ header{
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 380px;   /* <<< limite duro */
+  max-width: 390px;   /* <<< limite duro */
   overflow: hidden;   /* <<< tudo que passar, some */
   pointer-events: none; /* você já usa pointer-events nos filhos */
   z-index: 0;
