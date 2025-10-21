@@ -6,7 +6,7 @@
     margin: 0;
 }
 body{
-    background-color: gray;
+    background-color: rgb(49, 49, 49);
 }
 /* ---------------------------------------------------------------- */
 /* === ESTILOS GERAIS DO LAYOUT === */
@@ -660,3 +660,7 @@ html, body {
   margin: 0 auto;         /* centraliza horizontalmente */
   background-color: inherit; /* mantém o fundo geral */
 }
+
+.pmaisresultados{color: rgb(255, 255, 255); text-shadow: rgba(0, 0, 0, 0.315) 1px 1px 1px;text-decoration: none;text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 14px;}
+.pmaisresultados:hover{transform: translateY(-2px);
+transition: 0.5s;}
