@@ -72,7 +72,7 @@ header{
     background-image: url(backgroundfigma/background\ s1.jpg);
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -98,7 +98,7 @@ header{
 #subtitulo4s1{margin: 0px 20px;font-size: 1rem;font-family: 'mooli';text-shadow: rgba(0, 0, 0, 0.301) 1px 1px 1px}
 
 #section3{
-    height: 100vh;
+    height: 100dvh;
     background-image: url(backgroundfigma/backgrounds3.webp);
     background-position: center;
     background-size: cover;
@@ -173,7 +173,7 @@ header{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -331,7 +331,7 @@ header{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -600,7 +600,7 @@ header{
 
 /* Área invisível que cria a altura de rolagem total */
 .scroll-area {
-  height: 400vh; /* 4 seções = 400% da tela */
+  height: 400dvh; /* 4 seções = 400% da tela */
   background: transparent;
 }
 
